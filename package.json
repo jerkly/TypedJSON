@@ -1,10 +1,10 @@
 {
   "name": "typedjson",
-  "version": "0.1.5",
+  "version": "0.1.62",
   "description": "Typed JSON parsing and serializing for TypeScript that preserves type information, using decorators. Parse JSON into actual class instances.",
-  "main": "js/typed-json.js",
+  "main": "js/index.js",
   "typescript": {
-    "definition": "./js/typed-json.d.ts"
+    "definition": "./js/index.d.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JohnWhiteTB/TypedJSON.git"
+  },
+  "publishConfig": {
+    "registry": "http://registry.benderlab.com:4873/"
   },
   "author": "John White",
   "license": "MIT",

@@ -995,7 +995,7 @@ var Deserializer = (function () {
                 object = {};
                 Object.keys(json).forEach(function (propertyKey) {
                     // Skip type-hint when copying properties.
-                    if (json[propertyKey] && propertyKey !== settings.typeHintPropertyKey) {
+                    if (propertyKey !== settings.typeHintPropertyKey) {
                         var objectType;
                         if (Helpers.valueIsDefined(json[propertyKey])) {
                             objectType = json[propertyKey].constructor;
