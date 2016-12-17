@@ -197,18 +197,7 @@ var Helpers;
     }
     Helpers.isReservedMemberName = isReservedMemberName;
     function isSubtypeOf(A, B) {
-        var aPrototype = A.prototype;
-        // "A" is a class.
-        if (A === B) {
-            return true;
-        }
-        while (aPrototype) {
-            if (aPrototype instanceof B) {
-                return true;
-            }
-            aPrototype = aPrototype.prototype;
-        }
-        return false;
+        return A === B || A.prototype instanceof B;
     }
     Helpers.isSubtypeOf = isSubtypeOf;
     function log(message) {
