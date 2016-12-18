@@ -590,6 +590,7 @@ function JsonObject<T>(optionsOrTarget?: JsonObjectOptions<T> | { new (): T }): 
     }
 
     var initializer = options.initializer;
+    var serializer = options.serializer;
     var decorator = function (target: Constructor<T>): void {
         var objectMetadata: JsonObjectMetadata<T>;
         var parentMetadata: JsonObjectMetadata<T>;
@@ -647,6 +648,10 @@ function JsonObject<T>(optionsOrTarget?: JsonObjectOptions<T> | { new (): T }): 
 
         if (typeof initializer === "function") {
             objectMetadata.initializer = initializer;
+        }
+
+        if (typeof serializer === "function") {
+            objectMetadata.serializer = serializer;
         }
     };
 
