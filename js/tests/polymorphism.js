@@ -22,98 +22,99 @@ var Person = (function () {
             this.lastName = lastName;
         }
     }
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], Person.prototype, "firstName", void 0);
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], Person.prototype, "lastName", void 0);
-    Person = __decorate([
-        typed_json_1.JsonObject, 
-        __metadata('design:paramtypes', [String, String])
-    ], Person);
     return Person;
 }());
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], Person.prototype, "firstName", void 0);
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], Person.prototype, "lastName", void 0);
+Person = __decorate([
+    typed_json_1.JsonObject,
+    __metadata("design:paramtypes", [String, String])
+], Person);
 var Employee = (function (_super) {
     __extends(Employee, _super);
     function Employee(firstName, lastName, salary, joined) {
-        _super.call(this, firstName, lastName);
+        var _this = _super.call(this, firstName, lastName) || this;
         if (salary && joined) {
-            this.salary = salary;
-            this.joined = joined;
+            _this.salary = salary;
+            _this.joined = joined;
         }
+        return _this;
     }
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', Number)
-    ], Employee.prototype, "salary", void 0);
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', Date)
-    ], Employee.prototype, "joined", void 0);
-    Employee = __decorate([
-        typed_json_1.JsonObject, 
-        __metadata('design:paramtypes', [String, String, Number, Date])
-    ], Employee);
     return Employee;
 }(Person));
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", Number)
+], Employee.prototype, "salary", void 0);
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", Date)
+], Employee.prototype, "joined", void 0);
+Employee = __decorate([
+    typed_json_1.JsonObject,
+    __metadata("design:paramtypes", [String, String, Number, Date])
+], Employee);
 var PartTimeEmployee = (function (_super) {
     __extends(PartTimeEmployee, _super);
     function PartTimeEmployee() {
-        _super.apply(this, arguments);
+        return _super.apply(this, arguments) || this;
     }
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', Number)
-    ], PartTimeEmployee.prototype, "workHours", void 0);
-    PartTimeEmployee = __decorate([
-        typed_json_1.JsonObject, 
-        __metadata('design:paramtypes', [])
-    ], PartTimeEmployee);
     return PartTimeEmployee;
 }(Employee));
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", Number)
+], PartTimeEmployee.prototype, "workHours", void 0);
+PartTimeEmployee = __decorate([
+    typed_json_1.JsonObject,
+    __metadata("design:paramtypes", [])
+], PartTimeEmployee);
 var Investor = (function (_super) {
     __extends(Investor, _super);
     function Investor(firstName, lastName, investAmount) {
-        _super.call(this, firstName, lastName);
-        this.investAmount = investAmount || 0;
+        var _this = _super.call(this, firstName, lastName) || this;
+        _this.investAmount = investAmount || 0;
+        return _this;
     }
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', Number)
-    ], Investor.prototype, "investAmount", void 0);
-    Investor = __decorate([
-        typed_json_1.JsonObject, 
-        __metadata('design:paramtypes', [String, String, Number])
-    ], Investor);
     return Investor;
 }(Person));
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", Number)
+], Investor.prototype, "investAmount", void 0);
+Investor = __decorate([
+    typed_json_1.JsonObject,
+    __metadata("design:paramtypes", [String, String, Number])
+], Investor);
 var Company = (function () {
     function Company() {
         this.employees = [];
     }
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], Company.prototype, "name", void 0);
-    __decorate([
-        typed_json_1.JsonMember({ elements: Employee }), 
-        __metadata('design:type', Array)
-    ], Company.prototype, "employees", void 0);
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', Person)
-    ], Company.prototype, "owner", void 0);
-    Company = __decorate([
-        typed_json_1.JsonObject({ name: "company", knownTypes: [PartTimeEmployee, Investor] }), 
-        __metadata('design:paramtypes', [])
-    ], Company);
     return Company;
 }());
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], Company.prototype, "name", void 0);
+__decorate([
+    typed_json_1.JsonMember({ elements: Employee }),
+    __metadata("design:type", Array)
+], Company.prototype, "employees", void 0);
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", Person)
+], Company.prototype, "owner", void 0);
+Company = __decorate([
+    typed_json_1.JsonObject({ name: "company", knownTypes: [PartTimeEmployee, Investor] }),
+    __metadata("design:paramtypes", [])
+], Company);
 function test(log) {
-    // Create a Company.
     var company = new Company();
     company.name = "Json Types";
     switch (Math.floor(Math.random() * 4)) {
@@ -131,7 +132,6 @@ function test(log) {
             company.owner = new Person("John", "White");
             break;
     }
-    // Add employees.
     for (var j = 0; j < 20; j++) {
         if (Math.random() < 0.2) {
             var newPartTimeEmployee = new PartTimeEmployee("firstname_" + j, "lastname_" + j, Math.floor(Math.random() * 80000), new Date(Date.now() - Math.floor(Math.random() * 80000)));

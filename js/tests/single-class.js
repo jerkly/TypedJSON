@@ -15,24 +15,24 @@ var Person = (function () {
     Person.prototype.getFullname = function () {
         return this.firstName + " " + this.lastName;
     };
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], Person.prototype, "firstName", void 0);
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], Person.prototype, "lastName", void 0);
-    Person = __decorate([
-        typed_json_1.JsonObject, 
-        __metadata('design:paramtypes', [])
-    ], Person);
     return Person;
 }());
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], Person.prototype, "firstName", void 0);
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], Person.prototype, "lastName", void 0);
+Person = __decorate([
+    typed_json_1.JsonObject,
+    __metadata("design:paramtypes", [])
+], Person);
 function test(log) {
     var person = typed_json_1.TypedJSON.parse('{ "firstName": "John", "lastName": "Doe" }', Person);
-    person instanceof Person; // true
-    person.getFullname(); // "John Doe"
+    person instanceof Person;
+    person.getFullname();
     return person.getFullname() === "John Doe" && person instanceof Person;
 }
 exports.test = test;

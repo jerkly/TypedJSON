@@ -13,75 +13,75 @@ var typed_json_1 = require("../typed-json");
 var SmallNode = (function () {
     function SmallNode() {
     }
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', Number)
-    ], SmallNode.prototype, "x", void 0);
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', Number)
-    ], SmallNode.prototype, "y", void 0);
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], SmallNode.prototype, "inputType", void 0);
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], SmallNode.prototype, "outputType", void 0);
-    SmallNode = __decorate([
-        typed_json_1.JsonObject, 
-        __metadata('design:paramtypes', [])
-    ], SmallNode);
     return SmallNode;
 }());
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", Number)
+], SmallNode.prototype, "x", void 0);
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", Number)
+], SmallNode.prototype, "y", void 0);
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], SmallNode.prototype, "inputType", void 0);
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], SmallNode.prototype, "outputType", void 0);
+SmallNode = __decorate([
+    typed_json_1.JsonObject,
+    __metadata("design:paramtypes", [])
+], SmallNode);
 var BigNode = (function () {
     function BigNode() {
         this.inputs = [];
         this.outputs = [];
     }
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', Number)
-    ], BigNode.prototype, "x", void 0);
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', Number)
-    ], BigNode.prototype, "y", void 0);
-    __decorate([
-        typed_json_1.JsonMember({ elements: String }), 
-        __metadata('design:type', Array)
-    ], BigNode.prototype, "inputs", void 0);
-    __decorate([
-        typed_json_1.JsonMember({ elements: String }), 
-        __metadata('design:type', Array)
-    ], BigNode.prototype, "outputs", void 0);
-    BigNode = __decorate([
-        typed_json_1.JsonObject, 
-        __metadata('design:paramtypes', [])
-    ], BigNode);
     return BigNode;
 }());
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", Number)
+], BigNode.prototype, "x", void 0);
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", Number)
+], BigNode.prototype, "y", void 0);
+__decorate([
+    typed_json_1.JsonMember({ elements: String }),
+    __metadata("design:type", Array)
+], BigNode.prototype, "inputs", void 0);
+__decorate([
+    typed_json_1.JsonMember({ elements: String }),
+    __metadata("design:type", Array)
+], BigNode.prototype, "outputs", void 0);
+BigNode = __decorate([
+    typed_json_1.JsonObject,
+    __metadata("design:paramtypes", [])
+], BigNode);
 var GraphGrid = (function () {
     function GraphGrid() {
         this.points = [];
     }
-    __decorate([
-        typed_json_1.JsonMember({ elements: Object, refersAbstractType: true }), 
-        __metadata('design:type', Array)
-    ], GraphGrid.prototype, "points", void 0);
-    __decorate([
-        typed_json_1.JsonMember({ refersAbstractType: true }), 
-        __metadata('design:type', Object)
-    ], GraphGrid.prototype, "root", void 0);
-    GraphGrid = __decorate([
-        typed_json_1.JsonObject({
-            knownTypes: [BigNode, SmallNode]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], GraphGrid);
     return GraphGrid;
 }());
+__decorate([
+    typed_json_1.JsonMember({ elements: Object, refersAbstractType: true }),
+    __metadata("design:type", Array)
+], GraphGrid.prototype, "points", void 0);
+__decorate([
+    typed_json_1.JsonMember({ refersAbstractType: true }),
+    __metadata("design:type", Object)
+], GraphGrid.prototype, "root", void 0);
+GraphGrid = __decorate([
+    typed_json_1.JsonObject({
+        knownTypes: [BigNode, SmallNode]
+    }),
+    __metadata("design:paramtypes", [])
+], GraphGrid);
 function randPortType() {
     var types = [
         "string",

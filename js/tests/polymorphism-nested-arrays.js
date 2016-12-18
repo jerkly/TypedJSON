@@ -18,71 +18,72 @@ var typed_json_1 = require("../typed-json");
 var Node = (function () {
     function Node() {
     }
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], Node.prototype, "name", void 0);
     return Node;
 }());
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], Node.prototype, "name", void 0);
 var SmallNode = (function (_super) {
     __extends(SmallNode, _super);
     function SmallNode() {
-        _super.apply(this, arguments);
+        return _super.apply(this, arguments) || this;
     }
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], SmallNode.prototype, "inputType", void 0);
-    __decorate([
-        typed_json_1.JsonMember, 
-        __metadata('design:type', String)
-    ], SmallNode.prototype, "outputType", void 0);
-    SmallNode = __decorate([
-        typed_json_1.JsonObject, 
-        __metadata('design:paramtypes', [])
-    ], SmallNode);
     return SmallNode;
 }(Node));
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], SmallNode.prototype, "inputType", void 0);
+__decorate([
+    typed_json_1.JsonMember,
+    __metadata("design:type", String)
+], SmallNode.prototype, "outputType", void 0);
+SmallNode = __decorate([
+    typed_json_1.JsonObject,
+    __metadata("design:paramtypes", [])
+], SmallNode);
 var BigNode = (function (_super) {
     __extends(BigNode, _super);
     function BigNode() {
-        _super.call(this);
-        this.inputs = [];
-        this.outputs = [];
+        var _this = _super.call(this) || this;
+        _this.inputs = [];
+        _this.outputs = [];
+        return _this;
     }
-    __decorate([
-        typed_json_1.JsonMember({ elements: String }), 
-        __metadata('design:type', Array)
-    ], BigNode.prototype, "inputs", void 0);
-    __decorate([
-        typed_json_1.JsonMember({ elements: String }), 
-        __metadata('design:type', Array)
-    ], BigNode.prototype, "outputs", void 0);
-    BigNode = __decorate([
-        typed_json_1.JsonObject, 
-        __metadata('design:paramtypes', [])
-    ], BigNode);
     return BigNode;
 }(Node));
+__decorate([
+    typed_json_1.JsonMember({ elements: String }),
+    __metadata("design:type", Array)
+], BigNode.prototype, "inputs", void 0);
+__decorate([
+    typed_json_1.JsonMember({ elements: String }),
+    __metadata("design:type", Array)
+], BigNode.prototype, "outputs", void 0);
+BigNode = __decorate([
+    typed_json_1.JsonObject,
+    __metadata("design:paramtypes", [])
+], BigNode);
 var Graph = (function () {
     function Graph() {
         this.items = [];
         this.smallItems = [];
     }
-    __decorate([
-        typed_json_1.JsonMember({ elements: { elements: Node } }), 
-        __metadata('design:type', Array)
-    ], Graph.prototype, "items", void 0);
-    __decorate([
-        typed_json_1.JsonMember({ elements: { elements: SmallNode } }), 
-        __metadata('design:type', Array)
-    ], Graph.prototype, "smallItems", void 0);
-    Graph = __decorate([
-        typed_json_1.JsonObject({ knownTypes: [BigNode, SmallNode] }), 
-        __metadata('design:paramtypes', [])
-    ], Graph);
     return Graph;
 }());
+__decorate([
+    typed_json_1.JsonMember({ elements: { elements: Node } }),
+    __metadata("design:type", Array)
+], Graph.prototype, "items", void 0);
+__decorate([
+    typed_json_1.JsonMember({ elements: { elements: SmallNode } }),
+    __metadata("design:type", Array)
+], Graph.prototype, "smallItems", void 0);
+Graph = __decorate([
+    typed_json_1.JsonObject({ knownTypes: [BigNode, SmallNode] }),
+    __metadata("design:paramtypes", [])
+], Graph);
 function randPortType() {
     var types = [
         "string",
