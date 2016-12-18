@@ -1,6 +1,6 @@
 {
   "name": "typedjson",
-  "version": "0.1.71",
+  "version": "0.1.711",
   "description": "Typed JSON parsing and serializing for TypeScript that preserves type information, using decorators. Parse JSON into actual class instances.",
   "main": "js/typed-json.js",
   "typescript": {
